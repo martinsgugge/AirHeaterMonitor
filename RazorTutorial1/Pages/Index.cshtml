@@ -1,0 +1,15 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+    var name = "Martin Holm";
+}
+
+<div class="text-center">
+    <h1 class="display-4">MyApp</h1>
+    <p>Some code <a href="https://github.com/martinsgugge/desktop-tutorial">building Web apps with ASP.NET Core</a>.</p>
+    <p>The Date and Time just now is @DateTime.Now</p>
+    <p>Made by @name</p>
+    <p>My car is a @Model.cartype</p>
+</div>

@@ -1,0 +1,31 @@
+﻿@page
+@model RazorTutorial1.Pages.MeasurementModel
+@{
+    ViewData["Title"] = "Measurement Parameters";
+}
+<div>
+    <h1>Measurement Parameters</h1>
+    Below you see all the Measurement Names registered in the Database:
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>MeasurementId</th>
+                <th>Measurement Name</th>
+                <th>Unit</th>
+                <th>ChartLink</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var measurement in Model.measurementParameterList)
+            {
+                <tr>
+                    <td> @measurement.MeasurementId</td>
+                    <td> @measurement.MeasurementName</td>
+                    <td> @measurement.MeasurementUnit</td>
+                    <td><a href="./LineChart?tag=@measurement.MeasurementName;@measurement.MeasurementUnit;@measurement.MeasurementDescription" class="btn-dark" role="button">View Chart</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
