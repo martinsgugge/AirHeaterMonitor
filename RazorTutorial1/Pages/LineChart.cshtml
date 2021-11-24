@@ -3,17 +3,10 @@
 
 @{
     ViewData["Title"] = "Line Chart";
-    string chartTitle = "Temperature Data";
-    string chartUnit = "Celsius";
     
 }
 <!--TODO datetime picker-->
 <html>
-<head>
-    <title>Data Monitoring</title>
-    <meta http-equiv="refresh" content="5" />
-</head>
-
 
 <body>
     <h1 class="display-4">Line Chart</h1>
@@ -28,11 +21,11 @@
             var data = google.visualization.arrayToDataTable([
             ['Time', 'Data'],
             @foreach (var data in Model.chartDataList) {
-                <text>['@data.ChartTimeStamp', @data.ChartValue],</text>
+                <text>['@data.ChartTimeStamp.Remove(0,11)', @data.ChartValue],</text>
             }
             ]);
             var options = {
-            title: '@Model.meas.MeasurementName',
+                title: '@Model.meas.MeasurementName \n @Model.meas.MeasurementDescription',
             curveType: 'function',
             pointsVisible: true,
             lineWidth: 3,
@@ -50,7 +43,7 @@
         }
     </script>
     <div class="container-fluid lead">
-        <div id="line_chart" style="width: 800px; height: 600px"></div>
+        <div id="line_chart" style="width: 1080px; height: 820px; position:page"></div>
     </div>
 </body>
 </html>

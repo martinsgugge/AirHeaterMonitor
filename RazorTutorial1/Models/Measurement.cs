@@ -17,7 +17,7 @@ namespace RazorTutorial1.Models
         {
             List<Measurement> measurementParameterList = new List<Measurement>();
             NpgsqlConnection con = new NpgsqlConnection(connectionString);
-            string sqlQuery = "select tag_id, tag, physical_unit, description from tag";
+            string sqlQuery = "select * from get_tags()";
             con.Open();
             NpgsqlCommand cmd = new NpgsqlCommand(sqlQuery, con);
             NpgsqlDataReader dr = cmd.ExecuteReader();
@@ -26,10 +26,10 @@ namespace RazorTutorial1.Models
                 while (dr.Read())
                 {
                     Measurement measurmentParameter = new Measurement();
-                    measurmentParameter.MeasurementId = Convert.ToInt32(dr["tag_id"]);
-                    measurmentParameter.MeasurementName = dr["tag"].ToString();
-                    measurmentParameter.MeasurementUnit = dr["physical_unit"].ToString();
-                    measurmentParameter.MeasurementDescription = dr["description"].ToString();
+                    measurmentParameter.MeasurementId = Convert.ToInt32(dr["o_tag_id"]);
+                    measurmentParameter.MeasurementName = dr["o_tag"].ToString();
+                    measurmentParameter.MeasurementUnit = dr["o_physical_unit"].ToString();
+                    measurmentParameter.MeasurementDescription = dr["o_description"].ToString();
                     measurementParameterList.Add(measurmentParameter);
                 }
             }

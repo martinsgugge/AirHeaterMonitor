@@ -10,21 +10,24 @@
     <table class="table">
         <thead>
             <tr>
-                <th>MeasurementId</th>
                 <th>Measurement Name</th>
                 <th>Unit</th>
+                <th>Description</th>
                 <th>ChartLink</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var measurement in Model.measurementParameterList)
             {
-                <tr>
-                    <td> @measurement.MeasurementId</td>
-                    <td> @measurement.MeasurementName</td>
-                    <td> @measurement.MeasurementUnit</td>
-                    <td><a href="./LineChart?tag=@measurement.MeasurementName;@measurement.MeasurementUnit;@measurement.MeasurementDescription" class="btn-dark" role="button">View Chart</a></td>
-                </tr>
+            <tr>
+                <td> @measurement.MeasurementName</td>
+                <td> @measurement.MeasurementUnit</td>
+                <td> @measurement.MeasurementDescription</td>
+                <td>
+                    <a href="./DateTimePicker?tag=@measurement.MeasurementName;@measurement.MeasurementUnit;@measurement.MeasurementDescription;@measurement.MeasurementId"
+                       class="btn-light" role="button">Choose time</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

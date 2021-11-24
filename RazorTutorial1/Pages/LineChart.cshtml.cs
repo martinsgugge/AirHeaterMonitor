@@ -13,6 +13,10 @@ namespace RazorTutorial1.Pages
     {
         public List<ChartData> chartDataList = new List<ChartData>();
         public Measurement meas = new Measurement();
+        public string dateTimeStart;
+        public string dateTimeEnd;
+        public DateTime DateTimeStart;
+        public DateTime DateTimeEnd;
         string cs;
         readonly IConfiguration _configuration;
         public LineChartModel(IConfiguration configuration)
@@ -40,7 +44,7 @@ namespace RazorTutorial1.Pages
             cs = _configuration.GetConnectionString("DBCon");
             List<ChartData> chartDataList = new List<ChartData>();
             ChartData chartData = new ChartData();
-            chartDataList = chartData.GetChartData(cs, this.meas.MeasurementName);
+            chartDataList = chartData.GetChartData(cs, this.meas.MeasurementId, this.DateTimeStart, this.DateTimeEnd);
             this.chartDataList = chartDataList;
             return chartDataList;
         }       
@@ -51,6 +55,12 @@ namespace RazorTutorial1.Pages
             meas.MeasurementName = temp[0];
             meas.MeasurementUnit = temp[1];
             meas.MeasurementDescription = temp[2];
+            meas.MeasurementId = Convert.ToInt32(temp[3]);
+            //dateTimeStart = temp[4];
+            //dateTimeEnd = temp[5];
+            DateTimeStart = Convert.ToDateTime(temp[4]);
+            DateTimeEnd = Convert.ToDateTime(temp[5]);
+
         }
     }
 }
