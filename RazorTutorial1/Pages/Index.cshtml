@@ -1,16 +1,25 @@
-﻿@page
+﻿
+@page
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
 
     var name = "Martin Holm";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Monitoring app for the Air Heater</h1>
-    <p>This website is used to monitor the air heater. You can have a look at the tags in the measurement tab or <a href="./Measurement" class="btn-primary" role="button">here</a>. 
-    when you are viewing the tag table you can click in the chart link, which will take you to a time picker. Here you can choose what time frame to look at for the chosen tag. When the time 
-    is set, click the View Chart button to see the time frame.</p>
-    
-    
-</div>
+<html>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Monitoring app for the Air Heater</h1>
+        <p>
+            This website is used to monitor the air heater. You can have a look at the tags in the measurement tab or <a href="./Measurement">here</a>.
+            when you are viewing the tag table you can click in the chart link, which will take you to a time picker. Here you can choose what time frame to look at for the chosen tag. When the time
+            is set, click the View Chart button to see the time frame.
+        </p>
+        <br />
+        <p>
+            <img src="~/AirHeater.jpg" alt="Air Heater" width="800" height="600" />
+        </p>
+        <p>The code for this webpage can be seen on <a href="https://github.com/martinsgugge/AirHeaterMonitor">Github</a></p>
+    </div>
+</body>
+</html>
